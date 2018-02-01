@@ -10,14 +10,11 @@ export class HomePage {
 
     boxes: any[];
     colors: string[];
-<<<<<<< HEAD
     colorSelected: string;
     boxSelectedCount: number = 0;
     maxBoxSelected: number = 3;
     maxBoxes: number = 50;
 
-=======
->>>>>>> 380158bdc2bc5d30d2ae0e55f2866f05e6196449
     constructor(public navCtrl: NavController) {
         //aqui los colores
         this.colors = ['#0066ff', '#ff9933', '#009933',
