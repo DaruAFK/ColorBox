@@ -19,9 +19,8 @@ export class HomePage {
 
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
         //aqui los colores
-        this.colors = ['#0066ff', '#ff9933', '#009933',
-            '#00ffcc', '#cc6699', '#cccc00', '#cc00ff', '#993300',
-            '#00cc66', '#003300'];
+        this.colors = ['#ff5050', '#ffd633', '#3366ff',
+            '#33cc33', '#cc6699', '#996633', '#652996', '#8d8d8d'];
 
         let timer = Observable.timer(1000, 500);
         timer.subscribe(t => {
@@ -47,6 +46,7 @@ export class HomePage {
                 this.boxes = [];
                 this.colorSelected = null;
                 this.boxSelectedCount = 0;
+                this.score = 0;
                 this.flag = true;
               }
           }],
