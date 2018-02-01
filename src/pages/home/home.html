@@ -1,14 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Box Colors
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div *ngFor="let box of boxes" class="box" [ngClass]="{'selected': box.selected}" [ngStyle]="{'background-color': box.color}" (click)="selectBox(box)"></div>
 </ion-content>
