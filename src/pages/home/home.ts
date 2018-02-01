@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 
 @Component({
@@ -14,23 +14,45 @@ export class HomePage {
     boxSelectedCount: number = 0;
     maxBoxSelected: number = 3;
     maxBoxes: number = 24;
+    flag: boolean = true;
 
-    constructor(public navCtrl: NavController) {
+    constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
         //aqui los colores
         this.colors = ['#0066ff', '#ff9933', '#009933',
             '#00ffcc', '#cc6699', '#cccc00', '#cc00ff', '#993300',
             '#00cc66', '#003300'];
 
-        let timer = Observable.timer(1000, 1000);
+        let timer = Observable.timer(1000, 500);
         timer.subscribe(t => {
-            if(this.boxes.length < this.maxBoxes) {
-                let number = Math.floor(Math.random() * this.colors.length);
-                let color = this.colors[number];
-                this.boxes.push({ color: color });
-            }
+            if(this.flag){
+                if(this.boxes.length < this.maxBoxes) {
+                    let number = Math.floor(Math.random() * this.colors.length);
+                    let color = this.colors[number];
+                    this.boxes.push({ color: color });
+                }else{
+                    this.flag = false;
+                    this.showAlert();  
+                }
+            }            
         });
     }
-
+    showAlert(){
+        let alert = this.alertCtrl.create({
+          title: 'Game Over!',
+          subTitle: 'You are a Loser!',
+          buttons: [{
+              text:'Yes. i\' am :(',
+              handler: () => {
+                this.boxes = [];
+                this.colorSelected = null;
+                this.boxSelectedCount = 0;
+                this.flag = true;
+              }
+          }],
+          enableBackdropDismiss: false
+        });
+        return alert.present();
+    };     
     selectBox(box) {
         if(!box.selected) {
             if(!this.colorSelected || box.color == this.colorSelected) {
