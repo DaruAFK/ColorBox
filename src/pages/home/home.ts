@@ -38,7 +38,9 @@ export class HomePage {
                 box.selected = true;
                 this.colorSelected = box.color;
                 if(this.boxSelectedCount == this.maxBoxSelected){
-                    //this.boxes.slice()
+                    this.boxes = this.boxes.filter(b => !b.selected);
+                    this.boxSelectedCount = 0;
+                    this.colorSelected = null;
                 }
             }
         }
