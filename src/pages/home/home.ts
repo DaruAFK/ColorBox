@@ -13,7 +13,7 @@ export class HomePage {
     colorSelected: string;
     boxSelectedCount: number = 0;
     maxBoxSelected: number = 3;
-    maxBoxes: number = 50;
+    maxBoxes: number = 24;
 
     constructor(public navCtrl: NavController) {
         //aqui los colores
@@ -21,14 +21,14 @@ export class HomePage {
             '#00ffcc', '#cc6699', '#cccc00', '#cc00ff', '#993300',
             '#00cc66', '#003300'];
 
-        let timer = Observable.timer(2000, 1000);
+        let timer = Observable.timer(1000, 1000);
         timer.subscribe(t => {
-            let number = Math.floor(Math.random() * this.colors.length);
-            let color = this.colors[number];
-            this.boxes.push({ color: color });
+            if(this.boxes.length < this.maxBoxes) {
+                let number = Math.floor(Math.random() * this.colors.length);
+                let color = this.colors[number];
+                this.boxes.push({ color: color });
+            }
         });
-
-
     }
 
     selectBox(box) {
@@ -36,6 +36,7 @@ export class HomePage {
             if(!this.colorSelected || box.color == this.colorSelected) {
                 this.boxSelectedCount ++;
                 box.selected = true;
+                this.colorSelected = box.color;
                 if(this.boxSelectedCount == this.maxBoxSelected){
                     //this.boxes.slice()
                 }

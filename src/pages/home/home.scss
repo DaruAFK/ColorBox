@@ -1,6 +1,14 @@
 page-home {
     .box {
-        width: 20vw;
-        height: 20vw;
+        width: 16.5vw;
+        height: 16.5vw;
+        margin: 3vw;
+        display: inline-block;
+    }
+    .selected {
+        border-radius: 36px;
+    }
+    ion-content {
+        background-color: #a6a6b5
     }
 }
