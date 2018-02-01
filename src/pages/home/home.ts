@@ -15,6 +15,7 @@ export class HomePage {
     maxBoxSelected: number = 3;
     maxBoxes: number = 24;
     flag: boolean = true;
+    score: number = 0;
 
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
         //aqui los colores
@@ -63,6 +64,7 @@ export class HomePage {
                     this.boxes = this.boxes.filter(b => !b.selected);
                     this.boxSelectedCount = 0;
                     this.colorSelected = null;
+                    this.score += 1;
                 }
             }
         }
