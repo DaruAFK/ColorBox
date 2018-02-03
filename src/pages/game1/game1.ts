@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
+import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 
 @Component({
     selector: 'page-game1',
     templateUrl: 'game1.html'
 })
-export class Game1Page {
+export class Game1Page implements OnDestroy {
 
     boxes: any[] = [];
     colors: string[];
@@ -59,6 +60,7 @@ export class Game1Page {
                 this.flag = true;
                 this.speed = 800;
                 this.accel = 50;
+                this.navCtrl.pop();
               }
           }],
           enableBackdropDismiss: false
@@ -88,4 +90,9 @@ export class Game1Page {
         }
     }
 
+    ngOnDestroy(){
+        if(this.timer){
+            this.timer.unsubscribe();
+        }
+    }
 }
