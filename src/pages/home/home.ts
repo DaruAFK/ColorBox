@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
+import { Game1Page } from '../game1/game1';
+import { Game2Page } from '../game2/game2';
 
 @Component({
     selector: 'page-home',
@@ -10,6 +12,9 @@ import { Subscription } from 'rxjs/Subscription';
 export class HomePage {
 
     constructor(public navCtrl: NavController) {
+    }
+    
+    swipeEvent(e) {
     }
 
     newGame1() {
