@@ -1,17 +1,22 @@
 <ion-header>
-    <ion-navbar color="primary">
-        <ion-title>
-            Box Colors
-        </ion-title>
-        <ion-buttons end>
-            <button ion-button icon-right color="royal">
-                {{ score }}
-                <ion-icon name="trophy"></ion-icon>
-            </button>
-        </ion-buttons>
-    </ion-navbar>
+    <div *ngFor="let box of array1; let column = index" class="box" [ngStyle]="{'background-color': box}"
+        (touchstart)="play(1, column, box)"></div>
 </ion-header>
 
-<ion-content padding>
-    
+<ion-content>
+    <div style="height: 50%; background-color: rgb(243, 166, 64)">
+        <div *ngFor="let boxes of matriz1">
+            <div *ngFor="let box of boxes" class="box" [ngStyle]="{'background-color': box}"></div>
+        </div>
+    </div>
+    <div style="height: 50%; background-color: rgb(171, 64, 243)">
+        <div *ngFor="let boxes of matriz2">
+            <div *ngFor="let box of boxes" class="box" [ngStyle]="{'background-color': box}"></div>
+        </div>
+    </div>
 </ion-content>
+
+<ion-footer>
+    <div *ngFor="let box of array2; let column = index" class="box" [ngStyle]="{'background-color': box}" 
+        (touchstart)="play(2, column, box)"></div>
+</ion-footer>
