@@ -1,0 +1,14 @@
+page-game2 {
+    .box {
+        width: 16.5vw;
+        height: 16.5vw;
+        margin: 3vw;
+        display: inline-block;
+    }
+    .selected {
+        border-radius: 36px;
+    }
+    ion-content {
+        background-color: #e4e4e4 !important;
+    }
+}
