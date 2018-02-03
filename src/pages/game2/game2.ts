@@ -84,6 +84,15 @@ export class Game2Page {
         }
     }
 
+    moveArray(array: any[], direction){
+        if(direction == 1){
+            array.unshift(array.pop());
+        }
+        else{
+            array.push(array.shift());
+        }
+    }
+
     validateMatriz(matriz, color, i, j, result: any[]){
         //validar si la posicion en la matriz i j es del mismo color que el parametro
         if(i >= 0 && i < 3 && j >= 0 && j < 4 && matriz[i][j] == color){
