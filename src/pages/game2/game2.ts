@@ -108,8 +108,8 @@ export class Game2Page {
         }
     }
 
-    swipeEvent(e, array) {
-        this.moveArray(array, e.deltaX > 0 ? 1 : -1);
+    swipeEvent(e, array, rot) {
+        this.moveArray(array, e.deltaX * rot > 0 ? 1 : -1);
     }
     
 }
