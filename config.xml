@@ -2,7 +2,7 @@
 <widget id="com.colmenageek.colorbox" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Color Box</name>
     <description>A game made in Ionic.</description>
-    <author email="admin@ColmenaGeek.com" href="ColmenaGeek.com">ColmenaGeek Team</author>
+    <author email="admin@ColmenaGeek.com" href="colmenaGeek.com">Colmena Geek Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
