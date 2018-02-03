@@ -39,14 +39,14 @@ export class Game2Page {
     }
 
     play(player, column, color){
-        this.setColorMatriz(player == 0 ? this.matriz1 : this.matriz2, column, color, player);
-        this.setColorArray(player == 0 ? this.array1 : this.array2, column);
+        this.setColorMatriz(player == 0 ? this.matriz1 : this.matriz2, column, color, player);        
     }
 
     setColorMatriz(matriz,column, color, player){
         for(var i = 0; i < 3; i++){
             if(!matriz[i][column]){
                 matriz[i][column] = color;   
+                this.setColorArray(player == 0 ? this.array1 : this.array2, column);
                 this.setPoint(matriz, player);
                 break;             
             }
