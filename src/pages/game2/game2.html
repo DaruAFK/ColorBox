@@ -1,12 +1,12 @@
 <ion-header color="primary" (swipe)="swipeEvent($event, array1, -1)">
-    <div style="transform: rotate(180deg); width: 100%">
+    <div style="width: 100%" class="rotar">
         <div *ngFor="let box of array1; let column = index" class="box" [ngStyle]="{'background-color': box}"
-            (click)="play(0, column, box)"></div>
+            (tap)="play(0, column, box)"></div>
     </div>
 </ion-header>
 
 <ion-content>
-    <div style="height: 50%; background-color: rgb(245, 194, 127); transform: rotate(180deg);">
+    <div style="height: 50%; background-color: rgb(245, 194, 127);" class="rotar">
         <div *ngFor="let boxes of matriz1">
             <div *ngFor="let box of boxes" class="box" [ngStyle]="{'background-color': box}"></div>
         </div>
@@ -17,14 +17,17 @@
         </div>
     </div>
     <ion-fab left middle>
-        <button ion-fab mini color="primary" style="transform: rotate(180deg);">{{score[0]}}</button>
+        <button ion-fab mini color="primary" class="rotar">{{score[0]}}</button>
     </ion-fab>
     <ion-fab right middle>
         <button ion-fab mini color="secondary">{{score[1]}}</button>
+    </ion-fab>
+    <ion-fab center middle>
+        <button ion-fab mini color="light" (click)="leave()"><ion-icon name="exit"></ion-icon></button>
     </ion-fab>
 </ion-content>
 
 <ion-footer (swipe)="swipeEvent($event, array2, 1)" color="secondary">
     <div *ngFor="let box of array2; let column = index" class="box" [ngStyle]="{'background-color': box}" 
-        (click)="play(1, column, box)"></div>
+        (tap)="play(1, column, box)"></div>
 </ion-footer>

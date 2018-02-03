@@ -111,5 +111,9 @@ export class Game2Page {
     swipeEvent(e, array, rot) {
         this.moveArray(array, e.deltaX * rot > 0 ? 1 : -1);
     }
+
+    leave() {
+        this.navCtrl.pop();
+    }
     
 }

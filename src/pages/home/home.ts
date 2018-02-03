@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, Platform } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 import { Game1Page } from '../game1/game1';
@@ -11,7 +11,14 @@ import { Game2Page } from '../game2/game2';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController) {
+    constructor(
+        public navCtrl: NavController,
+        public platform: Platform
+    ) {
+    }
+
+    close() {
+        this.platform.exitApp();
     }
     
     swipeEvent(e) {
