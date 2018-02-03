@@ -64,7 +64,7 @@ export class Game2Page {
                 if(matriz[i][j]){
                     let result = [];
                     this.validateMatriz(matriz,matriz[i][j],i,j,result);
-                    if(result.length > 3){
+                    if(result.length >= 3){
                         for(let r of result){
                             this.compact(matriz, r.i, r.j);
                         }
@@ -77,9 +77,10 @@ export class Game2Page {
     }
 
     compact(matriz, i, j){
-        while(i > 0){
-            matriz[i][j] = matriz[i-1][j];
-            matriz[i-1][j] = null;
+        while(i < 2){
+            matriz[i][j] = matriz[i+1][j];
+            matriz[i+1][j] = null;
+            i++;
         }
     }
 
