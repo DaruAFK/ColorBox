@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Box Colors
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-right color="royal">
+                {{ score }}
+                <ion-icon name="trophy"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div *ngFor="let box of boxes" class="box" [ngClass]="{'selected': box.selected}" [ngStyle]="{'background-color': box.color}"
+        (click)="selectBox(box)"></div>
+</ion-content>
