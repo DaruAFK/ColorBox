@@ -17,7 +17,7 @@ export class Game2Page {
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
         //aqui los colores
         this.colors = ['#ff5050', '#ffd633', '#3366ff',
-            '#33cc33', '#cc6699', '#996633', '#652996', '#8d8d8d'];
+            '#33cc33', '#cc6699', '#996633', '#652996', '#8d8d8d', '#292929', '#e28a17'];
 
         this.fillArrayColors(this.array1);
         this.fillArrayColors(this.array2);
