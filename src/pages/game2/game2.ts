@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import { Observable } from 'rxjs/Rx';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'page-game2',
@@ -9,13 +7,12 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class Game2Page {
 
-    boxes: any[] = [];
     colors: string[];
     score: number[] = [0,0];
-    array1: any[];
-    array2: any[];
-    matriz1: any[][];
-    matriz2: any[][];
+    array1: any[] = [];
+    array2: any[] = [];
+    matriz1: any[][] = [];
+    matriz2: any[][] = [];
 
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
         //aqui los colores
@@ -37,7 +34,7 @@ export class Game2Page {
     }
 
     randomColor(){
-        let random = Math.floor(Math.random()*1);
+        let random = Math.floor(Math.random() * 4);
         return this.colors[random];
     }
 
