@@ -59,6 +59,7 @@ export class Game1Page {
                 this.flag = true;
                 this.speed = 800;
                 this.accel = 50;
+                this.navCtrl.pop();
               }
           }],
           enableBackdropDismiss: false
