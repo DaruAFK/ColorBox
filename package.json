@@ -1,8 +1,8 @@
 {
   "name": "color-box-ionic",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Colmena Geek",
+  "homepage": "http://colmenageek.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -40,7 +40,7 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project",
+  "description": "A game made in Ionic",
   "cordova": {
     "plugins": {
       "cordova-plugin-whitelist": {},
