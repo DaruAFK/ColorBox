@@ -28,7 +28,7 @@ export class Game2Page {
     }
 
     fillArrayColors(array){
-        for(var i = 0; i < 4; i++){          
+        for(var i = 0; i < 5; i++){          
             array[i] = this.randomColor();  
         }
     }
@@ -60,7 +60,7 @@ export class Game2Page {
     setPoint(matriz, player){
         let combo = 1;
         for(var i = 0; i < 3; i++){
-            for(var j = 0; j < 4; j++){
+            for(var j = 0; j < 5; j++){
                 if(matriz[i][j]){
                     let result = [];
                     this.validateMatriz(matriz,matriz[i][j],i,j,result);
@@ -97,7 +97,7 @@ export class Game2Page {
 
     validateMatriz(matriz, color, i, j, result: any[]){
         //validar si la posicion en la matriz i j es del mismo color que el parametro
-        if(i >= 0 && i < 3 && j >= 0 && j < 4 && matriz[i][j] == color){
+        if(i >= 0 && i < 3 && j >= 0 && j < 5 && matriz[i][j] == color){
             if(!result.find((r)=> r.i == i && r.j == j)) {
                 result.push({ i: i, j: j });
                 this.validateMatriz(matriz, color, i + 1, j, result);
