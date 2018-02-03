@@ -86,14 +86,16 @@ export class Game2Page {
         }
     }
 
-    validateMatriz(matriz, color, i, j, result){
+    validateMatriz(matriz, color, i, j, result: any[]){
         //validar si la posicion en la matriz i j es del mismo color que el parametro
         if(i >= 0 && i < 3 && j >= 0 && j < 4 && matriz[i][j] == color){
-            result.push({ i: i, j: j });
-            this.validateMatriz(matriz, color, i + 1, j, result);
-            this.validateMatriz(matriz,color, i - 1, j, result);
-            this.validateMatriz(matriz, color, i, j + 1, result);
-            this.validateMatriz(matriz,color, i, j - 1, result);       
+            if(!result.find((r)=> r.i == i && r.j == j)) {
+                result.push({ i: i, j: j });
+                this.validateMatriz(matriz, color, i + 1, j, result);
+                this.validateMatriz(matriz,color, i - 1, j, result);
+                this.validateMatriz(matriz, color, i, j + 1, result);
+                this.validateMatriz(matriz,color, i, j - 1, result); 
+            }      
         }
     }
     
