@@ -34,7 +34,7 @@ export class Game2Page {
     }
 
     randomColor(){
-        let random = Math.floor(Math.random() * 4);
+        let random = Math.floor(Math.random() * this.colors.length);
         return this.colors[random];
     }
 
@@ -65,7 +65,8 @@ export class Game2Page {
                     let result = [];
                     this.validateMatriz(matriz,matriz[i][j],i,j,result);
                     if(result.length >= 3){
-                        for(let r of result){
+                        let sorted = result.sort((a, b) => b.i - a.i);
+                        for(let r of sorted){
                             this.compact(matriz, r.i, r.j);
                         }
                         this.score[player] += result.length * combo;
@@ -77,6 +78,7 @@ export class Game2Page {
     }
 
     compact(matriz, i, j){
+        matriz[i][j] = null;
         while(i < 2){
             matriz[i][j] = matriz[i+1][j];
             matriz[i+1][j] = null;
@@ -104,6 +106,10 @@ export class Game2Page {
                 this.validateMatriz(matriz,color, i, j - 1, result); 
             }      
         }
+    }
+
+    swipeEvent(e, array) {
+        this.moveArray(array, e.deltaX > 0 ? 1 : -1);
     }
     
 }

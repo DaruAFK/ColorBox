@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header (swipe)="swipeEvent($event, array1)">
     <div *ngFor="let box of array1; let column = index" class="box" [ngStyle]="{'background-color': box}"
-        (touchstart)="play(0, column, box)"></div>
+        (click)="play(0, column, box)"></div>
 </ion-header>
 
 <ion-content>
@@ -16,7 +16,7 @@
     </div>
 </ion-content>
 
-<ion-footer>
+<ion-footer (swipe)="swipeEvent($event, array2)">
     <div *ngFor="let box of array2; let column = index" class="box" [ngStyle]="{'background-color': box}" 
-        (touchstart)="play(1, column, box)"></div>
+        (click)="play(1, column, box)"></div>
 </ion-footer>
