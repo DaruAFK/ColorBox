@@ -3,6 +3,7 @@ import { NavController, AlertController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
     selector: 'page-game1',
@@ -22,7 +23,7 @@ export class Game1Page implements OnDestroy {
     speed: number = 600;
     accel: number = 50;
 
-    constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public afDB: AngularFirestore) {
         //aqui los colores
         this.colors = ['#ff5050', '#ffd633', '#3366ff',
             '#33cc33', '#cc6699', '#996633', '#652996', '#8d8d8d'];
@@ -49,17 +50,18 @@ export class Game1Page implements OnDestroy {
     showAlert(){
         let alert = this.alertCtrl.create({
           title: 'Game Over!',
-          subTitle: 'You are a Loser!',
+          subTitle: 'You are a Loser! Score: ' + this.score,
+          inputs: [
+            {
+              name: 'name',
+              placeholder: 'Your name'
+            },
+          ],
           buttons: [{
               text:'Yes. i\' am :(',
-              handler: () => {
-                this.boxes = [];
-                this.colorSelected = null;
-                this.boxSelectedCount = 0;
-                this.score = 0;
-                this.flag = true;
-                this.speed = 800;
-                this.accel = 50;
+              handler: data => {
+                if(data.name && this.score > 0)
+                    this.saveScore(data.name);
                 this.navCtrl.pop();
               }
           }],
@@ -67,6 +69,13 @@ export class Game1Page implements OnDestroy {
         });
         return alert.present();
     };     
+    saveScore(name) {
+        this.afDB.collection('scores').add({
+            date: new Date(),
+            name: name,
+            score: this.score
+        });
+    }
     selectBox(box) {
         if(!box.selected) {
             if(!this.colorSelected || box.color == this.colorSelected) {

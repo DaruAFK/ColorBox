@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 import { Game1Page } from '../game1/game1';
 import { Game2Page } from '../game2/game2';
+import { ScoresPage } from '../scores/scores';
 
 @Component({
     selector: 'page-home',
@@ -30,6 +31,10 @@ export class HomePage {
 
     newGame2() {
         this.navCtrl.push(Game2Page);
+    }
+
+    scores() {
+        this.navCtrl.push(ScoresPage);
     }
 
 }
