@@ -13,7 +13,6 @@ export class Game2Page {
     array2: any[] = [];
     matriz1: any[][] = [];
     matriz2: any[][] = [];
-    test: any;
     constructor(public navCtrl: NavController, public alertCtrl: AlertController) {
         //aqui los colores
         this.colors = ['#ff5050', '#ffd633', '#3366ff',
